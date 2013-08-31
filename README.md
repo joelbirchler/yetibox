@@ -1,4 +1,4 @@
 yetibox
 =======
 
-A programming toy with blocks and sasquatch
+A programming toy with blocks and sasquatch.
