@@ -40,7 +40,7 @@ class Board extends Backbone.Collection
     # TODO: blocks on top of blocks should stomp (consider the 2d array approach)
     # TODO: remove blocks outside of the width and height window
             
-    # top with grass and trees
+    # top with trees
     # add them to the collection
     @add(blocks)
   
@@ -48,16 +48,23 @@ class BoardView extends Backbone.View
   tagName: 'canvas'
   className: 'board'
   attributes:
-    width: 800
-    height: 400
+    width: 980
+    height: 700
     
   currentBlockType: 'dirt'
   
   styleMap:
-    'dirt': 'chocolate'
-    'grass': 'green'
-    'rock': 'gray'
-    'water': 'blue'
+    'dirt':
+      'default': [576, 865]
+      'loner': [576, 793]
+      'top': [504, 577]
+      'color': 'green'
+    'rock': 
+      'default': [504, 289]
+      'color': 'red'
+    'water':
+      'default': [432, 649]
+      'color': 'blue'
   
   events:
     'mousedown': 'mouseDown'
@@ -66,8 +73,7 @@ class BoardView extends Backbone.View
   initialize: () =>
     @blockTypes = _.keys(@styleMap)
   
-    @tileWidth = @el.width / 20
-    @tileHeight = @el.height / 10  
+    @tileWidth = @tileHeight = 70
     
     @collection.on('all', @render)
     
@@ -80,7 +86,7 @@ class BoardView extends Backbone.View
     @ctx.fillRect(0, 0, @el.width, @el.height)
     
     @collection.each (block) =>
-      @ctx.fillStyle = @styleMap[block.get('type')]
+      @ctx.fillStyle = @styleMap[block.get('type')]['color']
       @ctx.fillRect(block.get('x') * @tileWidth, block.get('y') * @tileHeight, @tileWidth, @tileHeight)
       
   pixelCoordToTileCoord: (x, y) =>
@@ -115,4 +121,4 @@ class BoardView extends Backbone.View
 
 board = new Board()
 boardView = new BoardView(collection: board)
-board.generate(20, 10)
+board.generate(14, 10)
