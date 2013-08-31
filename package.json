@@ -1,7 +1,7 @@
 {
-  "name": "blocko",
+  "name": "yetibox",
   "version": "0.1.0",
-  "description": "A block toy",
+  "description": "A programming toy with blocks and sasquatch.",
   "devDependencies": {
     "browserify": "~2.13.2",
     "connect": "~2.7.6"
