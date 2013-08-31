@@ -1,0 +1,17 @@
+{
+  "name": "blocko",
+  "version": "0.1.0",
+  "description": "A block toy",
+  "devDependencies": {
+    "browserify": "~2.13.2",
+    "connect": "~2.7.6"
+  },
+  "dependencies": {
+    "backbone": "~1.0.0",
+    "underscore": "~1.5.1",
+    "zepto": "0.0.4"
+  },
+  "author": "Joel Birchler",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
